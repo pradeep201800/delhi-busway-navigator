@@ -275,7 +275,18 @@ export default function TransitMap(props: TransitMapProps) {
     }
     if (props.origin) bounds.extend([props.origin.lat, props.origin.lng]);
     if (props.destination) bounds.extend([props.destination.lat, props.destination.lng]);
-    if (bounds.isValid()) map.flyToBounds(bounds, { padding: [70, 70], maxZoom: 14, duration: 0.8 });
+    if (bounds.isValid()) {
+      const size = map.getSize();
+      const southWest = bounds.getSouthWest();
+      const northEast = bounds.getNorthEast();
+      const validBounds = [southWest.lat, southWest.lng, northEast.lat, northEast.lng].every(Number.isFinite);
+
+      // A zero-sized map makes Leaflet's animated bounds zoom calculate NaN.
+      if (size.x > 0 && size.y > 0 && validBounds) {
+        if (southWest.equals(northEast)) map.flyTo(bounds.getCenter(), 14, { duration: 0.8 });
+        else map.flyToBounds(bounds, { padding: [70, 70], maxZoom: 14, duration: 0.8 });
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [journeySig, selected?.id]);
 
@@ -356,7 +367,7 @@ export default function TransitMap(props: TransitMapProps) {
   }, [props.showFleet]);
 
   return (
-    <div className="relative h-full w-full">
+    <div className="absolute inset-0">
       <div ref={containerRef} className="transit-map h-full w-full" aria-label="Map of Delhi bus network" />
       {tilesFailed && (
         <div className="pointer-events-none absolute bottom-3 left-1/2 z-[700] flex -translate-x-1/2 items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground shadow-float">
