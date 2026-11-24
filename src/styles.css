@@ -70,77 +70,109 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-header-muted: var(--header-muted);
+  --color-header-chip: var(--header-chip);
+  --color-traffic-fast: var(--traffic-fast);
+  --color-traffic-moderate: var(--traffic-moderate);
+  --color-traffic-heavy: var(--traffic-heavy);
+  --color-traffic-severe: var(--traffic-severe);
+  --color-route: var(--route);
+  --color-route-foreground: var(--route-foreground);
+  --color-fleet-ac: var(--fleet-ac);
+  --color-fleet-cng: var(--fleet-cng);
+  --color-fleet-electric: var(--fleet-electric);
+  --color-success: var(--success);
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --shadow-float: var(--shadow-float-value);
+  --shadow-card: var(--shadow-card-value);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 0.75rem;
+  --background: oklch(0.972 0.009 85);
+  --foreground: oklch(0.21 0.03 252);
+  --card: oklch(0.993 0.005 85);
+  --card-foreground: oklch(0.21 0.03 252);
+  --popover: oklch(0.993 0.005 85);
+  --popover-foreground: oklch(0.21 0.03 252);
+  --primary: oklch(0.5 0.12 162);
+  --primary-foreground: oklch(0.985 0.01 162);
+  --secondary: oklch(0.935 0.014 85);
+  --secondary-foreground: oklch(0.25 0.03 252);
+  --muted: oklch(0.945 0.011 85);
+  --muted-foreground: oklch(0.5 0.025 252);
+  --accent: oklch(0.84 0.15 82);
+  --accent-foreground: oklch(0.22 0.03 252);
+  --destructive: oklch(0.56 0.21 27);
+  --destructive-foreground: oklch(0.985 0.01 27);
+  --success: oklch(0.55 0.14 155);
+  --border: oklch(0.89 0.014 85);
+  --input: oklch(0.87 0.016 85);
+  --ring: oklch(0.5 0.12 162);
+
+  --header: oklch(0.2 0.03 252);
+  --header-foreground: oklch(0.97 0.01 85);
+  --header-muted: oklch(0.72 0.02 252);
+  --header-chip: oklch(0.27 0.035 252);
+
+  --traffic-fast: oklch(0.63 0.15 152);
+  --traffic-moderate: oklch(0.79 0.16 82);
+  --traffic-heavy: oklch(0.66 0.19 45);
+  --traffic-severe: oklch(0.5 0.2 25);
+
+  --route: oklch(0.47 0.16 255);
+  --route-foreground: oklch(0.98 0.01 255);
+  --fleet-ac: oklch(0.56 0.19 27);
+  --fleet-cng: oklch(0.52 0.13 155);
+  --fleet-electric: oklch(0.52 0.14 240);
+
+  --map-bg: oklch(0.94 0.01 85);
+  --map-grid: oklch(0.88 0.012 85);
+
+  --shadow-float-value: 0 12px 32px -12px color-mix(in oklab, var(--foreground) 28%, transparent),
+    0 2px 6px -2px color-mix(in oklab, var(--foreground) 12%, transparent);
+  --shadow-card-value: 0 1px 2px color-mix(in oklab, var(--foreground) 8%, transparent);
+
+  --chart-1: oklch(0.5 0.12 162);
+  --chart-2: oklch(0.47 0.16 255);
+  --chart-3: oklch(0.79 0.16 82);
+  --chart-4: oklch(0.66 0.19 45);
+  --chart-5: oklch(0.5 0.2 25);
+  --sidebar: oklch(0.993 0.005 85);
+  --sidebar-foreground: oklch(0.21 0.03 252);
+  --sidebar-primary: oklch(0.5 0.12 162);
+  --sidebar-primary-foreground: oklch(0.985 0.01 162);
+  --sidebar-accent: oklch(0.935 0.014 85);
+  --sidebar-accent-foreground: oklch(0.25 0.03 252);
+  --sidebar-border: oklch(0.89 0.014 85);
+  --sidebar-ring: oklch(0.5 0.12 162);
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --background: oklch(0.17 0.02 252);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.21 0.025 252);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.21 0.025 252);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.68 0.13 162);
+  --primary-foreground: oklch(0.16 0.02 252);
+  --secondary: oklch(0.26 0.025 252);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.25 0.025 252);
+  --muted-foreground: oklch(0.7 0.02 252);
+  --accent: oklch(0.8 0.15 82);
+  --accent-foreground: oklch(0.18 0.02 252);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --ring: oklch(0.68 0.13 162);
+  --route: oklch(0.68 0.15 250);
+  --map-bg: oklch(0.2 0.02 252);
+  --map-grid: oklch(0.26 0.02 252);
 }
 
 @layer base {
@@ -148,8 +180,198 @@
     border-color: var(--color-border);
   }
 
+  html,
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Numbers that change with time read as transit signage. */
+@utility tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@utility fade-swap {
+  animation: fade-swap 0.35s ease-out both;
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+@keyframes fade-swap {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ping-dot {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+.live-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--traffic-fast);
+}
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: ping-dot 1.6s ease-out infinite;
+}
+
+/* ---------------- Map ---------------- */
+
+.transit-map.leaflet-container {
+  background-color: var(--map-bg);
+  background-image: linear-gradient(var(--map-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--map-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  font-family: var(--font-sans);
+}
+
+.transit-map .map-tiles {
+  filter: grayscale(0.85) contrast(0.92) brightness(1.04);
+}
+
+.transit-map.picking,
+.transit-map.picking .leaflet-interactive {
+  cursor: crosshair;
+}
+
+.transit-map .leaflet-tooltip {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-float-value);
+  font-size: 12px;
+  padding: 6px 8px;
+}
+.transit-map .leaflet-tooltip-top::before {
+  border-top-color: var(--card);
+}
+
+.transit-map .leaflet-control-attribution {
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  color: var(--muted-foreground);
+  font-size: 10px;
+}
+.transit-map .leaflet-control-attribution a {
+  color: var(--foreground);
+}
+
+.transit-map .leaflet-bar a {
+  background: var(--card);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+
+.bus-marker {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 6px 1px 4px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--primary-foreground);
+  border: 1.5px solid var(--card);
+  box-shadow: 0 2px 6px -1px color-mix(in oklab, var(--foreground) 40%, transparent);
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  transition: opacity 0.3s;
+}
+.bus-marker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--card);
+}
+.bus-marker.fleet-ac {
+  background: var(--fleet-ac);
+}
+.bus-marker.fleet-cng {
+  background: var(--fleet-cng);
+}
+.bus-marker.fleet-electric {
+  background: var(--fleet-electric);
+}
+.bus-marker.dim {
+  opacity: 0.35;
+}
+
+.pin-marker {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px 9999px 9999px 2px;
+  transform: translate(-50%, -100%) rotate(-45deg);
+  border: 2px solid var(--card);
+  box-shadow: var(--shadow-float-value);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+}
+.pin-marker span {
+  transform: rotate(45deg);
+}
+.pin-marker.origin {
+  background: var(--foreground);
+  color: var(--background);
+}
+.pin-marker.destination {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.transfer-marker {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  background: var(--card);
+  color: var(--route);
+  border: 3px solid var(--route);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
 }

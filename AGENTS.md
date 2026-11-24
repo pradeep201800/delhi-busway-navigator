@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Transit data and the traffic/journey model live in `src/lib/transit/` as pure, SSR-safe modules; UI components only read from them. Why: keeps the model testable (`model.test.ts`) and reusable by map and cards.
+- The Leaflet map (`src/components/transit/TransitMap.tsx`) is loaded only via `React.lazy` behind `<ClientOnly>`, with shared prop types in `map-types.ts`. Why: Leaflet touches `window` at import time and would break SSR.
+- Map colors are read from CSS tokens at runtime (`getComputedStyle`), never hardcoded. Why: keeps the map in sync with the design system.

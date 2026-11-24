@@ -16,6 +16,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        chip: "rounded-full border border-header-chip bg-header-chip text-header-foreground hover:border-header-muted/60",
+        chipActive: "rounded-full border border-accent bg-accent text-accent-foreground shadow-float",
+        mapControl: "border border-border bg-card text-card-foreground shadow-float hover:bg-secondary",
       },
       size: {
         default: "h-9 px-4 py-2",
